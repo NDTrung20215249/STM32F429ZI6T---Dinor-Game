@@ -1,4 +1,4 @@
-C:/TouchGFXProjects/MyApplication/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma2d.c:2049:13:DMA2D_SetConfig	16	static
+C:/TouchGFXProjects/MyApplication/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma2d.c:2049:13:DMA2D_SetConfig	20	static
 C:/TouchGFXProjects/MyApplication/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma2d.c:396:13:HAL_DMA2D_MspInit	0	static
 C:/TouchGFXProjects/MyApplication/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma2d.c:238:19:HAL_DMA2D_Init	8	static
 C:/TouchGFXProjects/MyApplication/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma2d.c:412:13:HAL_DMA2D_MspDeInit	0	static
