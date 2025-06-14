@@ -23,11 +23,14 @@
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/transitions/SlideTransition.hpp:154:18:void touchgfx::SlideTransition<templateDirection>::init() [with touchgfx::Direction templateDirection = touchgfx::SOUTH]	3
 ../../Middlewares/ST/touchgfx/framework/include/mvp/MVPApplication.hpp:59:18:virtual void touchgfx::MVPApplication::handlePendingScreenTransition()	3
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/transitions/SlideTransition.hpp:87:18:void touchgfx::SlideTransition<templateDirection>::handleTickEvent() [with touchgfx::Direction templateDirection = touchgfx::SOUTH]	4
-C:/TouchGFXProjects/MyApplication/TouchGFX/generated/gui_generated/src/common/FrontendApplicationBase.cpp:70:6:void FrontendApplicationBase::gotoGameOverScreenScreenNoTransitionImpl()	7
-C:/TouchGFXProjects/MyApplication/TouchGFX/generated/gui_generated/src/common/FrontendApplicationBase.cpp:57:6:void FrontendApplicationBase::gotoScreen1ScreenSlideTransitionSouthImpl()	8
-C:/TouchGFXProjects/MyApplication/TouchGFX/generated/gui_generated/src/common/FrontendApplicationBase.cpp:46:6:void FrontendApplicationBase::gotoScreen1ScreenNoTransitionImpl()	7
+C:/TouchGFXProjects/MyApplication/TouchGFX/generated/gui_generated/src/common/FrontendApplicationBase.cpp:59:6:void FrontendApplicationBase::gotoScreen1ScreenSlideTransitionSouthImpl()	8
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/HAL.hpp:308:17:static touchgfx::LCD& touchgfx::HAL::lcd()	3
 C:/TouchGFXProjects/MyApplication/TouchGFX/generated/gui_generated/src/common/FrontendApplicationBase.cpp:21:1:FrontendApplicationBase::FrontendApplicationBase(Model&, FrontendHeap&)	1
-C:/TouchGFXProjects/MyApplication/TouchGFX/generated/gui_generated/src/common/FrontendApplicationBase.cpp:40:6:void FrontendApplicationBase::gotoScreen1ScreenNoTransition()	1
-C:/TouchGFXProjects/MyApplication/TouchGFX/generated/gui_generated/src/common/FrontendApplicationBase.cpp:51:6:void FrontendApplicationBase::gotoScreen1ScreenSlideTransitionSouth()	1
-C:/TouchGFXProjects/MyApplication/TouchGFX/generated/gui_generated/src/common/FrontendApplicationBase.cpp:64:6:void FrontendApplicationBase::gotoGameOverScreenScreenNoTransition()	1
+C:/TouchGFXProjects/MyApplication/TouchGFX/generated/gui_generated/src/common/FrontendApplicationBase.cpp:40:6:void FrontendApplicationBase::gotoMenuScreenNoTransition()	1
+C:/TouchGFXProjects/MyApplication/TouchGFX/generated/gui_generated/src/common/FrontendApplicationBase.cpp:53:6:void FrontendApplicationBase::gotoScreen1ScreenSlideTransitionSouth()	1
+C:/TouchGFXProjects/MyApplication/TouchGFX/generated/gui_generated/src/common/FrontendApplicationBase.cpp:64:6:void FrontendApplicationBase::gotoScreen1ScreenNoTransition()	1
+C:/TouchGFXProjects/MyApplication/TouchGFX/generated/gui_generated/src/common/FrontendApplicationBase.cpp:77:6:void FrontendApplicationBase::gotoGameOverScreenScreenNoTransition()	1
+../../Middlewares/ST/touchgfx/framework/include/common/AbstractPartition.hpp:135:8:T& touchgfx::AbstractPartition::at(uint16_t) [with T = touchgfx::NoTransition]	1
+C:/TouchGFXProjects/MyApplication/TouchGFX/generated/gui_generated/src/common/FrontendApplicationBase.cpp:83:6:void FrontendApplicationBase::gotoGameOverScreenScreenNoTransitionImpl()	7
+C:/TouchGFXProjects/MyApplication/TouchGFX/generated/gui_generated/src/common/FrontendApplicationBase.cpp:70:6:void FrontendApplicationBase::gotoScreen1ScreenNoTransitionImpl()	7
+C:/TouchGFXProjects/MyApplication/TouchGFX/generated/gui_generated/src/common/FrontendApplicationBase.cpp:46:6:void FrontendApplicationBase::gotoMenuScreenNoTransitionImpl()	7
