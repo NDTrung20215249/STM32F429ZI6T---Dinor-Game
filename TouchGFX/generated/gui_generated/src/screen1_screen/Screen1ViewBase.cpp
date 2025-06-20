@@ -21,7 +21,7 @@ Screen1ViewBase::Screen1ViewBase() :
     groundBox.setColor(touchgfx::Color::getColorFromRGB(33, 35, 43));
     add(groundBox);
 
-    trexImage.setXY(25, 143);
+    trexImage.setXY(24, 143);
     trexImage.setBitmap(touchgfx::Bitmap(BITMAP_KGNCIN_ID));
     add(trexImage);
 
@@ -37,7 +37,7 @@ Screen1ViewBase::Screen1ViewBase() :
     tapAreaButton.setAction(buttonCallback);
     add(tapAreaButton);
 
-    scoreText.setPosition(137, 0, 103, 21);
+    scoreText.setPosition(81, 0, 149, 21);
     scoreText.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     scoreText.setLinespacing(0);
     Unicode::snprintf(scoreTextBuffer, SCORETEXT_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_BKBS).getText());
@@ -73,4 +73,12 @@ void Screen1ViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& src)
         //Call onTapAreaPressed
         onTapAreaPressed();
     }
+}
+
+void Screen1ViewBase::gameOverTransition()
+{
+    //onGameEnd
+    //When gameOverTransition is called change screen to GameOverScreen
+    //Go to GameOverScreen with no screen transition
+    application().gotoGameOverScreenScreenNoTransition();
 }

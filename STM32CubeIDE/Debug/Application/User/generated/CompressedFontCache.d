@@ -1,5 +1,5 @@
 Application/User/generated/CompressedFontCache.o: \
- C:/TouchGFXProjects/DinoGame/TouchGFX/generated/fonts/src/CompressedFontCache.cpp \
+ C:/TouchGFXProjects/Dino/TouchGFX/generated/fonts/src/CompressedFontCache.cpp \
  ../../TouchGFX/generated/fonts/include/fonts/CompressedFontCache.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Types.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Config.hpp \

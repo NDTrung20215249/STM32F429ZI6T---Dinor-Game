@@ -12,16 +12,16 @@
       <Text Id="__SingleUse_843D" Alignment="Center" TypographyId="Typography_00">
         <Translation Language="GB">START</Translation>
       </Text>
-      <Text Id="__SingleUse_L38S" Alignment="Left" TypographyId="Typography_00">
+      <Text Id="__SingleUse_L38S" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">0</Translation>
       </Text>
-      <Text Id="__SingleUse_066F" Alignment="Left" TypographyId="Typography_00">
+      <Text Id="__SingleUse_066F" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">Higest Score: &lt;value&gt;</Translation>
       </Text>
-      <Text Id="__SingleUse_I1O9" Alignment="Left" TypographyId="Typography_00">
+      <Text Id="__SingleUse_I1O9" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">0</Translation>
       </Text>
-      <Text Id="__SingleUse_2IHK" Alignment="Left" TypographyId="Typography_00">
+      <Text Id="__SingleUse_2IHK" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">Final Score: &lt;value&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_WVY5" Alignment="Center" TypographyId="Typography_00">
@@ -42,7 +42,7 @@
     </TextGroup>
   </Texts>
   <Typographies>
-    <Typography Id="Default" Font="verdana.ttf" Size="20" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
+    <Typography Id="Default" Font="verdana.ttf" Size="20" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="0-9" />
     <Typography Id="Large" Font="verdana.ttf" Size="40" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
     <Typography Id="Small" Font="verdana.ttf" Size="10" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
     <Typography Id="Typography_00" Font="OCRAEXT.TTF" Size="23" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />

@@ -20,6 +20,11 @@ public:
     virtual void setupScreen();
 
     /*
+     * Custom Actions
+     */
+    virtual void gameOverTransition();
+
+    /*
      * Virtual Action Handlers
      */
     virtual void onTapAreaPressed()

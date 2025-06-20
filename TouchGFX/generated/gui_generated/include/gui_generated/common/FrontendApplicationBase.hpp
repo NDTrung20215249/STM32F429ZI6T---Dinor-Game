@@ -26,6 +26,9 @@ public:
     // Screen1
     void gotoScreen1ScreenNoTransition();
 
+    // GameOverScreen
+    void gotoGameOverScreenScreenNoTransition();
+
 protected:
     touchgfx::Callback<FrontendApplicationBase> transitionCallback;
     FrontendHeap& frontendHeap;
@@ -36,6 +39,9 @@ protected:
 
     // Screen1
     void gotoScreen1ScreenNoTransitionImpl();
+
+    // GameOverScreen
+    void gotoGameOverScreenScreenNoTransitionImpl();
 };
 
 #endif // FRONTENDAPPLICATIONBASE_HPP

@@ -1,5 +1,5 @@
 Application/User/gui/GameOverScreenPresenter.o: \
- C:/TouchGFXProjects/DinoGame/TouchGFX/gui/src/gameoverscreen_screen/GameOverScreenPresenter.cpp \
+ C:/TouchGFXProjects/Dino/TouchGFX/gui/src/gameoverscreen_screen/GameOverScreenPresenter.cpp \
  ../../TouchGFX/gui/include/gui/gameoverscreen_screen/GameOverScreenView.hpp \
  ../../TouchGFX/generated/gui_generated/include/gui_generated/gameoverscreen_screen/GameOverScreenViewBase.hpp \
  ../../TouchGFX/gui/include/gui/common/FrontendApplication.hpp \
@@ -53,7 +53,11 @@ Application/User/gui/GameOverScreenPresenter.o: \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/ButtonWithLabel.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Button.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/AbstractButton.hpp \
- ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextAreaWithWildcard.hpp
+ ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextAreaWithWildcard.hpp \
+ ../../TouchGFX/gui/include/gui/screen1_screen/Screen1View.hpp \
+ ../../TouchGFX/generated/gui_generated/include/gui_generated/screen1_screen/Screen1ViewBase.hpp \
+ ../../TouchGFX/gui/include/gui/screen1_screen/Screen1Presenter.hpp \
+ ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Image.hpp
 ../../TouchGFX/gui/include/gui/gameoverscreen_screen/GameOverScreenView.hpp:
 ../../TouchGFX/generated/gui_generated/include/gui_generated/gameoverscreen_screen/GameOverScreenViewBase.hpp:
 ../../TouchGFX/gui/include/gui/common/FrontendApplication.hpp:
@@ -108,3 +112,7 @@ Application/User/gui/GameOverScreenPresenter.o: \
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Button.hpp:
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/AbstractButton.hpp:
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextAreaWithWildcard.hpp:
+../../TouchGFX/gui/include/gui/screen1_screen/Screen1View.hpp:
+../../TouchGFX/generated/gui_generated/include/gui_generated/screen1_screen/Screen1ViewBase.hpp:
+../../TouchGFX/gui/include/gui/screen1_screen/Screen1Presenter.hpp:
+../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Image.hpp:

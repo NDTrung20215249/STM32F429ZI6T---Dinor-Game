@@ -1,11 +1,16 @@
 #include <gui/screen1_screen/Screen1View.hpp>
 
+
+int Screen1View::finalScore = 0;
+int Screen1View::highScore = 0;
+
 Screen1View::Screen1View() :
     trexY(0),
     velocity(0),
     gravity(1.5f),
     isJumping(false),
     obstacleX(0),
+	obstacleY(0),
     score(0)
 {
     // Initialization will be done in setupScreen
@@ -21,7 +26,10 @@ void Screen1View::setupScreen()
 
     // Set initial obstacle position off the right edge
     obstacleX = HAL::DISPLAY_WIDTH;
+    obstacleY = 146;
     obstacleImage.setX(obstacleX);
+    obstacleImage.setY(obstacleY);
+
 
     // Optional: Score text
     // Unicode::snprintf(scoreTextBuffer, SCORETEXT_SIZE, "%d", score);
@@ -72,11 +80,13 @@ void Screen1View::handleTickEvent()
         obstacleX = HAL::DISPLAY_WIDTH;
         score++;
 
-        // Unicode::snprintf(scoreTextBuffer, SCORETEXT_SIZE, "%d", score);
-        // scoreText.invalidate();
+        Unicode::snprintf(scoreTextBuffer, SCORETEXT_SIZE, "%d", score);
+        scoreText.invalidate();
     }
 
     obstacleImage.setX(obstacleX);
+    obstacleImage.setY(obstacleY);
+
     obstacleImage.invalidate(); // Redraw at new position
     // --- Cloud movement ---
     cloud1.invalidate(); // Clear old obstacle
@@ -100,22 +110,28 @@ void Screen1View::handleTickEvent()
             {
                 cloud2X = HAL::DISPLAY_WIDTH;
 
-                // Unicode::snprintf(scoreTextBuffer, SCORETEXT_SIZE, "%d", score);
-                // scoreText.invalidate();
+                Unicode::snprintf(scoreTextBuffer, SCORETEXT_SIZE, "%d", score);
+                scoreText.invalidate();
             }
 
             cloud2.setX(cloud2X);
             cloud1.invalidate(); // Redraw at new position
     // --- Collision detection ---
-    if (obstacleX < trexImage.getX() + trexImage.getWidth() &&
-        obstacleX + obstacleImage.getWidth() > trexImage.getX() &&
-        trexY + trexImage.getHeight() > groundBox.getY())
+    if (sqrt(pow(obstacleX - trexImage.getX(),2)+pow(obstacleY - trexImage.getY(),2))<44)
     {
         // Collision detected: reset
+    	finalScore = score;
+    	if(highScore < finalScore){
+    		highScore = finalScore;
+    	}
+
         score = 0;
         obstacleX = HAL::DISPLAY_WIDTH;
 
-        // Unicode::snprintf(scoreTextBuffer, SCORETEXT_SIZE, "%d", score);
-        // scoreText.invalidate();
+
+        Unicode::snprintf(scoreTextBuffer, SCORETEXT_SIZE, "%d", score);
+        scoreText.invalidate();
+
+        gameOverTransition();
     }
 }

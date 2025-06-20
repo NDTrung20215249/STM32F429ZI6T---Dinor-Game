@@ -111,7 +111,7 @@
           {
             "Type": "Image",
             "Name": "trexImage",
-            "X": 25,
+            "X": 24,
             "Y": 143,
             "Width": 44,
             "Height": 47,
@@ -150,8 +150,8 @@
           {
             "Type": "TextArea",
             "Name": "scoreText",
-            "X": 137,
-            "Width": 103,
+            "X": 81,
+            "Width": 149,
             "Height": 21,
             "TextId": "__SingleUse_UY6F",
             "TextRotation": "0",
@@ -182,6 +182,18 @@
         ],
         "Interactions": [
           {
+            "InteractionName": "onGameEnd",
+            "Trigger": {
+              "Type": "TriggerWhen",
+              "ActionCustomTypeName": "Call Screen1 gameOverTransition"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionNone",
+              "ActionComponent": "GameOverScreen"
+            }
+          },
+          {
             "InteractionName": "onTapAreaPressed",
             "Trigger": {
               "Type": "TriggerClicked",
@@ -191,6 +203,11 @@
               "Type": "ActionCustom",
               "FunctionName": "onTapAreaPressed"
             }
+          }
+        ],
+        "CustomActions": [
+          {
+            "Name": "gameOverTransition"
           }
         ]
       },

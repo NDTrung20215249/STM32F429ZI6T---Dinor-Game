@@ -1,5 +1,5 @@
 Application/User/generated/GameOverScreenViewBase.o: \
- C:/TouchGFXProjects/DinoGame/TouchGFX/generated/gui_generated/src/gameoverscreen_screen/GameOverScreenViewBase.cpp \
+ C:/TouchGFXProjects/Dino/TouchGFX/generated/gui_generated/src/gameoverscreen_screen/GameOverScreenViewBase.cpp \
  ../../TouchGFX/generated/gui_generated/include/gui_generated/gameoverscreen_screen/GameOverScreenViewBase.hpp \
  ../../TouchGFX/gui/include/gui/common/FrontendApplication.hpp \
  ../../TouchGFX/generated/gui_generated/include/gui_generated/common/FrontendApplicationBase.hpp \
