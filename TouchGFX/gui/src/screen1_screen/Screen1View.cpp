@@ -11,6 +11,7 @@ Screen1View::Screen1View() :
     isJumping(false),
     obstacleX(0),
 	obstacleY(0),
+	obstacleSpeed(0),
     score(0)
 {
     // Initialization will be done in setupScreen
@@ -27,6 +28,7 @@ void Screen1View::setupScreen()
     // Set initial obstacle position off the right edge
     obstacleX = HAL::DISPLAY_WIDTH;
     obstacleY = 146;
+    obstacleSpeed = 4 + rand() % 3;
     obstacleImage.setX(obstacleX);
     obstacleImage.setY(obstacleY);
 
@@ -74,10 +76,12 @@ void Screen1View::handleTickEvent()
     // --- Obstacle movement ---
     obstacleImage.invalidate(); // Clear old obstacle
 
-    obstacleX -= 4;
+    obstacleX -= obstacleSpeed;
+
     if (obstacleX + obstacleImage.getWidth() < 0)
     {
         obstacleX = HAL::DISPLAY_WIDTH;
+        obstacleSpeed = 4 + rand() % 3;
         score++;
 
         Unicode::snprintf(scoreTextBuffer, SCORETEXT_SIZE, "%d", score);

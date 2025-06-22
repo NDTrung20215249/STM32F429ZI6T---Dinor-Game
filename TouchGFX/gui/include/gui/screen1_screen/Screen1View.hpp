@@ -28,6 +28,7 @@ protected:
     // Obstacle movement
     int obstacleX;         // X position of obstacle
     int obstacleY;         // Y position of obstacle
+    int obstacleSpeed;
 
     int cloud1X;
     float cloud2X;

@@ -21,7 +21,8 @@
 #include "main.h"
 #include "cmsis_os.h"
 #include "app_touchgfx.h"
-
+#include <stdlib.h>
+#include <time.h>
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "Components/ili9341/ili9341.h"
@@ -151,7 +152,7 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
-
+	srand(HAL_GetTick());
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
