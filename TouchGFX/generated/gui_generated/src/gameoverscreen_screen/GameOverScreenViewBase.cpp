@@ -31,7 +31,7 @@ GameOverScreenViewBase::GameOverScreenViewBase() :
     restartButton.setAction(buttonCallback);
     add(restartButton);
 
-    finalScoreText.setPosition(45, 145, 213, 30);
+    finalScoreText.setPosition(22, 137, 213, 30);
     finalScoreText.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     finalScoreText.setLinespacing(0);
     Unicode::snprintf(finalScoreTextBuffer, FINALSCORETEXT_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_I1O9).getText());
@@ -39,7 +39,7 @@ GameOverScreenViewBase::GameOverScreenViewBase() :
     finalScoreText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_2IHK));
     add(finalScoreText);
 
-    highScoreText.setPosition(33, 0, 225, 27);
+    highScoreText.setPosition(15, 12, 225, 27);
     highScoreText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
     highScoreText.setLinespacing(0);
     Unicode::snprintf(highScoreTextBuffer, HIGHSCORETEXT_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_L38S).getText());

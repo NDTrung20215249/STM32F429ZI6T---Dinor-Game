@@ -32,7 +32,7 @@ MenuViewBase::MenuViewBase() :
     add(Title);
 
     image1.setXY(27, 120);
-    image1.setBitmap(touchgfx::Bitmap(BITMAP_TREXFRAME0_ID));
+    image1.setBitmap(touchgfx::Bitmap(BITMAP_KGNCIN_ID));
     add(image1);
 
     image2.setXY(167, 120);

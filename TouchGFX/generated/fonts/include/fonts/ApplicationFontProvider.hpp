@@ -19,7 +19,6 @@ struct Typography
     static const touchgfx::FontId TYPOGRAPHY_00 = 3;
     static const touchgfx::FontId TYPOGRAPHY_01 = 4;
     static const touchgfx::FontId TYPOGRAPHY_02 = 5;
-    static const touchgfx::FontId T_SCORE_LARGE = 6;
 };
 
 struct TypographyFontIndex
@@ -30,8 +29,7 @@ struct TypographyFontIndex
     static const touchgfx::FontId TYPOGRAPHY_00 = 3; // OCRAEXT_TTF_23_4bpp
     static const touchgfx::FontId TYPOGRAPHY_01 = 4; // SNAP_____TTF_29_4bpp
     static const touchgfx::FontId TYPOGRAPHY_02 = 5; // seguibl_22_4bpp
-    static const touchgfx::FontId T_SCORE_LARGE = 6; // verdana_22_4bpp
-    static const uint16_t NUMBER_OF_FONTS = 7;
+    static const uint16_t NUMBER_OF_FONTS = 6;
 };
 
 class ApplicationFontProvider : public touchgfx::FontProvider

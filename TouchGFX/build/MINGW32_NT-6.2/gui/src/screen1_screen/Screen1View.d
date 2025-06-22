@@ -54,9 +54,7 @@ build/MINGW32_NT-6.2/gui/src/screen1_screen/Screen1View.o: \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Button.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/AbstractButton.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextAreaWithWildcard.hpp \
- ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextArea.hpp \
- generated/images/include/images/BitmapDatabase.hpp \
- ../Middlewares/ST/touchgfx/framework/include/touchgfx/Color.hpp
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextArea.hpp
 
 gui/include/gui/screen1_screen/Screen1View.hpp:
 
@@ -167,7 +165,3 @@ gui/include/gui/model/ModelListener.hpp:
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextAreaWithWildcard.hpp:
 
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextArea.hpp:
-
-generated/images/include/images/BitmapDatabase.hpp:
-
-../Middlewares/ST/touchgfx/framework/include/touchgfx/Color.hpp:
