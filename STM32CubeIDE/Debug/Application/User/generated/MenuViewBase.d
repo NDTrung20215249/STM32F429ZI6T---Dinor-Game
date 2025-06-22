@@ -1,5 +1,5 @@
 Application/User/generated/MenuViewBase.o: \
- C:/TouchGFXProjects/Dino/TouchGFX/generated/gui_generated/src/menu_screen/MenuViewBase.cpp \
+ C:/TouchGFXProjects/MyApplication/TouchGFX/generated/gui_generated/src/menu_screen/MenuViewBase.cpp \
  ../../TouchGFX/generated/gui_generated/include/gui_generated/menu_screen/MenuViewBase.hpp \
  ../../TouchGFX/gui/include/gui/common/FrontendApplication.hpp \
  ../../TouchGFX/generated/gui_generated/include/gui_generated/common/FrontendApplicationBase.hpp \
