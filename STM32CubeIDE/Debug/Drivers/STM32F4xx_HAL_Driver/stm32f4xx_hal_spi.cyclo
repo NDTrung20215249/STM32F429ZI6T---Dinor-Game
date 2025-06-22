@@ -45,7 +45,7 @@ C:/TouchGFXProjects/MyApplication/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal
 C:/TouchGFXProjects/MyApplication/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c:2679:13:SPI_DMATransmitCplt	5
 C:/TouchGFXProjects/MyApplication/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c:2736:13:SPI_DMAReceiveCplt	6
 C:/TouchGFXProjects/MyApplication/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c:2825:13:SPI_DMATransmitReceiveCplt	4
-C:/TouchGFXProjects/MyApplication/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c:2386:6:HAL_SPI_IRQHandler	17
+C:/TouchGFXProjects/MyApplication/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c:2386:6:HAL_SPI_IRQHandler	18
 C:/TouchGFXProjects/MyApplication/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c:2982:13:SPI_DMAAbortOnError	1
 C:/TouchGFXProjects/MyApplication/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c:2607:13:HAL_SPI_AbortCpltCallback	1
 C:/TouchGFXProjects/MyApplication/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c:2145:19:HAL_SPI_Abort_IT	19
