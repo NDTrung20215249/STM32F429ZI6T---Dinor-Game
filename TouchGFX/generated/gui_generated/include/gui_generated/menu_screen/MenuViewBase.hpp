@@ -28,9 +28,9 @@ protected:
      * Member Declarations
      */
     touchgfx::Box __background;
-    touchgfx::Box background;
-    touchgfx::ButtonWithLabel startButton;
-    touchgfx::TextArea Title;
+    touchgfx::Box box1;
+    touchgfx::ButtonWithLabel buttonWithLabel1;
+    touchgfx::TextArea textArea1;
     touchgfx::Image image1;
     touchgfx::Image image2;
 

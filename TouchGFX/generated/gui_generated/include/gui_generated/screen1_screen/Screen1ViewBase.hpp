@@ -22,7 +22,7 @@ public:
     /*
      * Custom Actions
      */
-    virtual void gameOverTransition();
+    virtual void goToGameOverScreen();
 
     /*
      * Virtual Action Handlers
@@ -47,13 +47,11 @@ protected:
     touchgfx::Image obstacleImage;
     touchgfx::ButtonWithLabel tapAreaButton;
     touchgfx::TextAreaWithOneWildcard scoreText;
-    touchgfx::Image cloud1;
-    touchgfx::Image cloud2;
 
     /*
      * Wildcard Buffers
      */
-    static const uint16_t SCORETEXT_SIZE = 10;
+    static const uint16_t SCORETEXT_SIZE = 1000;
     touchgfx::Unicode::UnicodeChar scoreTextBuffer[SCORETEXT_SIZE];
 
 private:

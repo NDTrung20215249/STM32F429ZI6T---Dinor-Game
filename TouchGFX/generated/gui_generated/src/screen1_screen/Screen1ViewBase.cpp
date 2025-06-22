@@ -14,44 +14,36 @@ Screen1ViewBase::Screen1ViewBase() :
     add(__background);
 
     background.setPosition(0, 0, 240, 320);
-    background.setColor(touchgfx::Color::getColorFromRGB(129, 247, 239));
+    background.setColor(touchgfx::Color::getColorFromRGB(153, 255, 253));
     add(background);
 
-    groundBox.setPosition(0, 190, 240, 130);
-    groundBox.setColor(touchgfx::Color::getColorFromRGB(33, 35, 43));
+    groundBox.setPosition(0, 184, 240, 136);
+    groundBox.setColor(touchgfx::Color::getColorFromRGB(61, 61, 61));
     add(groundBox);
 
-    trexImage.setXY(24, 143);
+    trexImage.setXY(25, 137);
     trexImage.setBitmap(touchgfx::Bitmap(BITMAP_KGNCIN_ID));
     add(trexImage);
 
-    obstacleImage.setXY(301, 146);
+    obstacleImage.setXY(301, 144);
     obstacleImage.setBitmap(touchgfx::Bitmap(BITMAP_GWEDLY_ID));
     add(obstacleImage);
 
-    tapAreaButton.setXY(0, 230);
-    tapAreaButton.setBitmaps(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_50_MEDIUM_ROUND_NORMAL_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_50_MEDIUM_ROUND_NORMAL_ID));
-    tapAreaButton.setLabelText(touchgfx::TypedText(T___SINGLEUSE_Q723));
+    tapAreaButton.setXY(0, 227);
+    tapAreaButton.setBitmaps(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_50_MEDIUM_ROUNDED_NORMAL_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_50_MEDIUM_ROUNDED_PRESSED_ID));
+    tapAreaButton.setLabelText(touchgfx::TypedText(T_JUMPBUTTON));
     tapAreaButton.setLabelColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     tapAreaButton.setLabelColorPressed(touchgfx::Color::getColorFromRGB(255, 255, 255));
     tapAreaButton.setAction(buttonCallback);
     add(tapAreaButton);
 
-    scoreText.setPosition(81, 0, 149, 21);
+    scoreText.setPosition(77, 8, 138, 26);
     scoreText.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     scoreText.setLinespacing(0);
-    Unicode::snprintf(scoreTextBuffer, SCORETEXT_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_BKBS).getText());
+    Unicode::snprintf(scoreTextBuffer, SCORETEXT_SIZE, "%s", touchgfx::TypedText(T_SCORETEXT).getText());
     scoreText.setWildcard(scoreTextBuffer);
-    scoreText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_UY6F));
+    scoreText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_XRE0));
     add(scoreText);
-
-    cloud1.setXY(240, 33);
-    cloud1.setBitmap(touchgfx::Bitmap(BITMAP_CLOUD_ID));
-    add(cloud1);
-
-    cloud2.setXY(370, 63);
-    cloud2.setBitmap(touchgfx::Bitmap(BITMAP_CLOUD_ID));
-    add(cloud2);
 }
 
 Screen1ViewBase::~Screen1ViewBase()
@@ -75,10 +67,10 @@ void Screen1ViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& src)
     }
 }
 
-void Screen1ViewBase::gameOverTransition()
+void Screen1ViewBase::goToGameOverScreen()
 {
-    //onGameEnd
-    //When gameOverTransition is called change screen to GameOverScreen
+    //SwitchScreenToGameOver
+    //When goToGameOverScreen is called change screen to GameOverScreen
     //Go to GameOverScreen with no screen transition
     application().gotoGameOverScreenScreenNoTransition();
 }

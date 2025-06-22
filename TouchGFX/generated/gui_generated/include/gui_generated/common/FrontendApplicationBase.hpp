@@ -24,6 +24,8 @@ public:
     void gotoMenuScreenNoTransition();
 
     // Screen1
+    void gotoScreen1ScreenSlideTransitionSouth();
+
     void gotoScreen1ScreenNoTransition();
 
     // GameOverScreen
@@ -38,6 +40,8 @@ protected:
     void gotoMenuScreenNoTransitionImpl();
 
     // Screen1
+    void gotoScreen1ScreenSlideTransitionSouthImpl();
+
     void gotoScreen1ScreenNoTransitionImpl();
 
     // GameOverScreen

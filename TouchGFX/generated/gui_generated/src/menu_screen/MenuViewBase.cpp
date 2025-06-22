@@ -13,29 +13,29 @@ MenuViewBase::MenuViewBase() :
     __background.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     add(__background);
 
-    background.setPosition(0, 0, 240, 320);
-    background.setColor(touchgfx::Color::getColorFromRGB(129, 247, 239));
-    add(background);
+    box1.setPosition(0, 0, 240, 320);
+    box1.setColor(touchgfx::Color::getColorFromRGB(0, 231, 247));
+    add(box1);
 
-    startButton.setXY(0, 220);
-    startButton.setBitmaps(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_50_MEDIUM_ROUNDED_NORMAL_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_50_MEDIUM_ROUNDED_PRESSED_ID));
-    startButton.setLabelText(touchgfx::TypedText(T___SINGLEUSE_843D));
-    startButton.setLabelColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    startButton.setLabelColorPressed(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    startButton.setAction(buttonCallback);
-    add(startButton);
+    buttonWithLabel1.setXY(0, 218);
+    buttonWithLabel1.setBitmaps(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_50_MEDIUM_ROUND_DISABLED_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_50_MEDIUM_ROUND_DISABLED_ID));
+    buttonWithLabel1.setLabelText(touchgfx::TypedText(T___SINGLEUSE_RMWA));
+    buttonWithLabel1.setLabelColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    buttonWithLabel1.setLabelColorPressed(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    buttonWithLabel1.setAction(buttonCallback);
+    add(buttonWithLabel1);
 
-    Title.setXY(5, 46);
-    Title.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
-    Title.setLinespacing(0);
-    Title.setTypedText(touchgfx::TypedText(T___SINGLEUSE_19N8));
-    add(Title);
+    textArea1.setXY(3, 40);
+    textArea1.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+    textArea1.setLinespacing(0);
+    textArea1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_RG16));
+    add(textArea1);
 
-    image1.setXY(27, 120);
+    image1.setXY(30, 137);
     image1.setBitmap(touchgfx::Bitmap(BITMAP_KGNCIN_ID));
     add(image1);
 
-    image2.setXY(167, 120);
+    image2.setXY(163, 137);
     image2.setBitmap(touchgfx::Bitmap(BITMAP_KGNCIN___COPY_ID));
     add(image2);
 }
@@ -52,11 +52,11 @@ void MenuViewBase::setupScreen()
 
 void MenuViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& src)
 {
-    if (&src == &startButton)
+    if (&src == &buttonWithLabel1)
     {
         //Interaction1
-        //When startButton clicked change screen to Screen1
-        //Go to Screen1 with no screen transition
-        application().gotoScreen1ScreenNoTransition();
+        //When buttonWithLabel1 clicked change screen to Screen1
+        //Go to Screen1 with screen transition towards South
+        application().gotoScreen1ScreenSlideTransitionSouth();
     }
 }

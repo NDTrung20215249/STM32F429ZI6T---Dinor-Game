@@ -1,6 +1,6 @@
 #include <gui/gameoverscreen_screen/GameOverScreenView.hpp>
 
-GameOverScreenView::GameOverScreenView() :
+GameOverScreenView::GameOverScreenView():
 	finalScore(0)
 {
 
@@ -12,11 +12,14 @@ void GameOverScreenView::setupScreen()
     finalScore = Screen1View::finalScore;
     highScore = Screen1View::highScore;
 
-    Unicode::snprintf(finalScoreTextBuffer, FINALSCORETEXT_SIZE, "%d", finalScore);
+
+    Unicode::snprintf(finalScoreTextBuffer, FINAL_SCORE_TEXT_SIZE, "%d", finalScore);
+    finalScoreText.setWildcard(finalScoreTextBuffer);
     finalScoreText.invalidate();
 
-    Unicode::snprintf(highScoreTextBuffer, HIGHSCORETEXT_SIZE, "%d", highScore);
-    highScoreText.invalidate();
+    Unicode::snprintf(highScoreTextBuffer, FINAL_SCORE_TEXT_SIZE, "%d", highScore);
+    highestScoreText.setWildcard(highScoreTextBuffer);
+    highestScoreText.invalidate();
 }
 
 void GameOverScreenView::tearDownScreen()

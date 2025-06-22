@@ -13,39 +13,38 @@ GameOverScreenViewBase::GameOverScreenViewBase() :
     __background.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     add(__background);
 
-    background.setPosition(0, 0, 240, 320);
-    background.setColor(touchgfx::Color::getColorFromRGB(129, 247, 239));
-    add(background);
+    box1.setPosition(0, 0, 240, 320);
+    box1.setColor(touchgfx::Color::getColorFromRGB(0, 255, 208));
+    add(box1);
 
-    GameOver.setXY(5, 102);
-    GameOver.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
-    GameOver.setLinespacing(0);
-    GameOver.setTypedText(touchgfx::TypedText(T___SINGLEUSE_5KWO));
-    add(GameOver);
+    GAMEOVER.setXY(0, 92);
+    GAMEOVER.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+    GAMEOVER.setLinespacing(0);
+    GAMEOVER.setTypedText(touchgfx::TypedText(T___SINGLEUSE_48F9));
+    add(GAMEOVER);
 
-    restartButton.setXY(33, 180);
-    restartButton.setBitmaps(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_50_SMALL_ROUND_NORMAL_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_50_SMALL_ROUND_PRESSED_ID));
-    restartButton.setLabelText(touchgfx::TypedText(T___SINGLEUSE_WVY5));
-    restartButton.setLabelColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    restartButton.setLabelColorPressed(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    restartButton.setAction(buttonCallback);
-    add(restartButton);
-
-    finalScoreText.setPosition(22, 137, 213, 30);
+    finalScoreText.setPosition(50, 142, 180, 24);
     finalScoreText.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     finalScoreText.setLinespacing(0);
-    Unicode::snprintf(finalScoreTextBuffer, FINALSCORETEXT_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_I1O9).getText());
+    Unicode::snprintf(finalScoreTextBuffer, FINALSCORETEXT_SIZE, "%s", touchgfx::TypedText(T_FINALSCORETEXT).getText());
     finalScoreText.setWildcard(finalScoreTextBuffer);
-    finalScoreText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_2IHK));
+    finalScoreText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_1R18));
     add(finalScoreText);
 
-    highScoreText.setPosition(15, 12, 225, 27);
-    highScoreText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
-    highScoreText.setLinespacing(0);
-    Unicode::snprintf(highScoreTextBuffer, HIGHSCORETEXT_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_L38S).getText());
-    highScoreText.setWildcard(highScoreTextBuffer);
-    highScoreText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_066F));
-    add(highScoreText);
+    buttonWithLabel1.setXY(34, 175);
+    buttonWithLabel1.setBitmaps(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_50_SMALL_ROUNDED_DISABLED_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_50_SMALL_ROUND_DISABLED_ID));
+    buttonWithLabel1.setLabelText(touchgfx::TypedText(T___SINGLEUSE_0I61));
+    buttonWithLabel1.setLabelColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    buttonWithLabel1.setLabelColorPressed(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    buttonWithLabel1.setAction(buttonCallback);
+    add(buttonWithLabel1);
+
+    highestScoreText.setPosition(42, 35, 196, 26);
+    highestScoreText.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+    highestScoreText.setLinespacing(0);
+    highestScoreText.setWildcard(touchgfx::TypedText(T_HIGHSCORETEXT).getText());
+    highestScoreText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_4TPU));
+    add(highestScoreText);
 }
 
 GameOverScreenViewBase::~GameOverScreenViewBase()
@@ -60,10 +59,10 @@ void GameOverScreenViewBase::setupScreen()
 
 void GameOverScreenViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& src)
 {
-    if (&src == &restartButton)
+    if (&src == &buttonWithLabel1)
     {
         //Interaction1
-        //When restartButton clicked change screen to Screen1
+        //When buttonWithLabel1 clicked change screen to Screen1
         //Go to Screen1 with no screen transition
         application().gotoScreen1ScreenNoTransition();
     }
