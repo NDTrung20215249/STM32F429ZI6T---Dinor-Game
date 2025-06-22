@@ -141,9 +141,9 @@
           {
             "Type": "TextArea",
             "Name": "scoreText",
-            "X": 81,
+            "X": 85,
             "Width": 149,
-            "Height": 21,
+            "Height": 33,
             "TextId": "__SingleUse_UY6F",
             "TextRotation": "0",
             "Wildcard1": {
@@ -262,8 +262,8 @@
           {
             "Type": "TextArea",
             "Name": "finalScoreText",
-            "X": 22,
-            "Y": 137,
+            "X": 45,
+            "Y": 145,
             "Width": 213,
             "Height": 30,
             "TextId": "__SingleUse_2IHK",
@@ -277,8 +277,7 @@
           {
             "Type": "TextArea",
             "Name": "highScoreText",
-            "X": 15,
-            "Y": 12,
+            "X": 33,
             "Width": 225,
             "Height": 27,
             "TextId": "__SingleUse_066F",

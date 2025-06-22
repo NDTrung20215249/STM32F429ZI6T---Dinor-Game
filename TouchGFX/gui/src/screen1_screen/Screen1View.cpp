@@ -1,5 +1,6 @@
 #include <gui/screen1_screen/Screen1View.hpp>
 #include <images/BitmapDatabase.hpp>
+#include <touchgfx/Color.hpp>
 
 
 int Screen1View::finalScore = 0;
@@ -15,7 +16,10 @@ Screen1View::Screen1View() :
 	obstacleSpeed(0),
     animationFrameCounter(0),
 	currentTrexFrame(0),
-    score(0)
+    score(0),
+    isScoreFlashing(false),
+    flashCounter()
+
 {
     // Initialization will be done in setupScreen
 }
@@ -35,6 +39,12 @@ void Screen1View::setupScreen()
     obstacleImage.setY(obstacleY);
     animationFrameCounter = 0;
     currentTrexFrame = 0;
+    backgroundBrightness = 255; // Start as full day
+    isNight = false;
+    isScoreFlashing = false;
+    flashCounter = 0;
+    scoreText.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0)); // Black Text
+    scoreText.invalidate();
 
 
     // Optional: Score text
@@ -87,6 +97,13 @@ void Screen1View::handleTickEvent()
         obstacleX = HAL::DISPLAY_WIDTH;
         obstacleSpeed = 4 + rand() % 3;
         score++;
+        // Every 10 points, toggle day/night
+        if (score % 5 == 0)
+        {
+            isNight = !isNight;
+            isScoreFlashing = true;
+            flashCounter = 0;
+        }
 
         Unicode::snprintf(scoreTextBuffer, SCORETEXT_SIZE, "%d", score);
         scoreText.invalidate();
@@ -173,4 +190,49 @@ void Screen1View::handleTickEvent()
 
         gameOverTransition();
     }
+    // Smooth background transition
+    if (isNight && backgroundBrightness > 50)
+    {
+        backgroundBrightness -= 3; // Darken
+    }
+    else if (!isNight && backgroundBrightness < 255)
+    {
+        backgroundBrightness += 3; // Brighten
+    }
+
+    // Compute RGB color based on brightness
+    uint8_t r = backgroundBrightness;
+    uint8_t g = backgroundBrightness;
+    uint8_t b = backgroundBrightness;
+
+    // Apply background color smoothly
+    colortype color = touchgfx::Color::getColorFromRGB(r, g, b);
+    background.setColor(color);
+    background.invalidate();
+    // Flash Color Score
+    if (isScoreFlashing)
+    {
+        flashCounter++;
+
+        // Flash between red and black every 5 ticks
+        if (flashCounter % 10 < 5)
+        {
+            scoreText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0)); // Red
+        }
+        else
+        {
+            scoreText.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0)); // Black
+        }
+
+        scoreText.invalidate();
+
+        // Stop flashing after 30 ticks (~600ms)
+        if (flashCounter > 30)
+        {
+            isScoreFlashing = false;
+            scoreText.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0)); // Final black
+            scoreText.invalidate();
+        }
+    }
+
 }

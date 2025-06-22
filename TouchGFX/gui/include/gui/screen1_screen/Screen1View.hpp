@@ -38,6 +38,10 @@ protected:
     int currentTrexFrame;
     // Game state
     int score;             // Player score
+    uint8_t backgroundBrightness; // 255 = full day, 0 = full night
+    bool isNight;                 // Toggle for current state
+    bool isScoreFlashing;
+    int flashCounter;
 
 
     // Optional: Score buffer for text area (if using wildcard)

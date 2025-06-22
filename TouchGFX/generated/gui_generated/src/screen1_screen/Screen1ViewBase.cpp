@@ -33,7 +33,7 @@ Screen1ViewBase::Screen1ViewBase() :
     tapAreaButton.setAction(buttonCallback);
     add(tapAreaButton);
 
-    scoreText.setPosition(81, 0, 149, 21);
+    scoreText.setPosition(85, 0, 149, 33);
     scoreText.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     scoreText.setLinespacing(0);
     Unicode::snprintf(scoreTextBuffer, SCORETEXT_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_BKBS).getText());
