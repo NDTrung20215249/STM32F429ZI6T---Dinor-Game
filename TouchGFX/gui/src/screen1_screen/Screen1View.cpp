@@ -1,4 +1,5 @@
 #include <gui/screen1_screen/Screen1View.hpp>
+#include <images/BitmapDatabase.hpp>
 
 
 int Screen1View::finalScore = 0;
@@ -12,6 +13,8 @@ Screen1View::Screen1View() :
     obstacleX(0),
 	obstacleY(0),
 	obstacleSpeed(0),
+    animationFrameCounter(0),
+	currentTrexFrame(0),
     score(0)
 {
     // Initialization will be done in setupScreen
@@ -24,13 +27,14 @@ void Screen1View::setupScreen()
     // Position T-Rex on top of ground
     trexY = groundBox.getY() - trexImage.getHeight();
     trexImage.setY(trexY);
-
     // Set initial obstacle position off the right edge
     obstacleX = HAL::DISPLAY_WIDTH;
     obstacleY = 146;
     obstacleSpeed = 4 + rand() % 3;
     obstacleImage.setX(obstacleX);
     obstacleImage.setY(obstacleY);
+    animationFrameCounter = 0;
+    currentTrexFrame = 0;
 
 
     // Optional: Score text
@@ -120,6 +124,37 @@ void Screen1View::handleTickEvent()
 
             cloud2.setX(cloud2X);
             cloud1.invalidate(); // Redraw at new position
+
+// --- T-Rex manual animation ---
+            if (isJumping)
+            {
+                // Show jump frame while T-Rex is in the air
+                trexImage.setBitmap(Bitmap(BITMAP_TREXFRAME0_ID));
+                trexImage.invalidate();
+            }
+            else
+            {
+                // Animate running when on ground
+                animationFrameCounter++;
+
+                if (animationFrameCounter >= 5) // Change every 5 ticks
+                {
+                    currentTrexFrame = 1 - currentTrexFrame;
+
+                    if (currentTrexFrame == 0)
+                    {
+                        trexImage.setBitmap(Bitmap(BITMAP_TREXFRAME0_ID));
+                    }
+                    else
+                    {
+                        trexImage.setBitmap(Bitmap(BITMAP_TREXFRAME1_ID));
+                    }
+
+                    trexImage.invalidate();
+                    animationFrameCounter = 0;
+                }
+            }
+
     // --- Collision detection ---
     if (sqrt(pow(obstacleX - trexImage.getX(),2)+pow(obstacleY - trexImage.getY(),2))<44)
     {

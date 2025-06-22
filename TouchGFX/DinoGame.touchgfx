@@ -110,15 +110,6 @@
           },
           {
             "Type": "Image",
-            "Name": "trexImage",
-            "X": 24,
-            "Y": 143,
-            "Width": 44,
-            "Height": 47,
-            "RelativeFilename": "kgncin.png"
-          },
-          {
-            "Type": "Image",
             "Name": "obstacleImage",
             "X": 301,
             "Y": 146,
@@ -178,6 +169,15 @@
             "Width": 42,
             "Height": 30,
             "RelativeFilename": "cloud.png"
+          },
+          {
+            "Type": "Image",
+            "Name": "trexImage",
+            "X": 24,
+            "Y": 143,
+            "Width": 44,
+            "Height": 47,
+            "RelativeFilename": "trexFrame0.png"
           }
         ],
         "Interactions": [

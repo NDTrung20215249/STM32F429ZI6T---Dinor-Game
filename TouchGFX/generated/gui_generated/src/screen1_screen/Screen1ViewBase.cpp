@@ -21,10 +21,6 @@ Screen1ViewBase::Screen1ViewBase() :
     groundBox.setColor(touchgfx::Color::getColorFromRGB(33, 35, 43));
     add(groundBox);
 
-    trexImage.setXY(24, 143);
-    trexImage.setBitmap(touchgfx::Bitmap(BITMAP_KGNCIN_ID));
-    add(trexImage);
-
     obstacleImage.setXY(301, 146);
     obstacleImage.setBitmap(touchgfx::Bitmap(BITMAP_GWEDLY_ID));
     add(obstacleImage);
@@ -52,6 +48,10 @@ Screen1ViewBase::Screen1ViewBase() :
     cloud2.setXY(370, 63);
     cloud2.setBitmap(touchgfx::Bitmap(BITMAP_CLOUD_ID));
     add(cloud2);
+
+    trexImage.setXY(24, 143);
+    trexImage.setBitmap(touchgfx::Bitmap(BITMAP_TREXFRAME0_ID));
+    add(trexImage);
 }
 
 Screen1ViewBase::~Screen1ViewBase()

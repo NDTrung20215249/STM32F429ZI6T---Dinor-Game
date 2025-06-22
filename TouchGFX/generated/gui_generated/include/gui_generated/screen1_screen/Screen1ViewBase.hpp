@@ -43,12 +43,12 @@ protected:
     touchgfx::Box __background;
     touchgfx::Box background;
     touchgfx::Box groundBox;
-    touchgfx::Image trexImage;
     touchgfx::Image obstacleImage;
     touchgfx::ButtonWithLabel tapAreaButton;
     touchgfx::TextAreaWithOneWildcard scoreText;
     touchgfx::Image cloud1;
     touchgfx::Image cloud2;
+    touchgfx::Image trexImage;
 
     /*
      * Wildcard Buffers

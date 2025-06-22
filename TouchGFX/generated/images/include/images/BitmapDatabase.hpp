@@ -16,6 +16,8 @@ const uint16_t BITMAP_GWEDLY_ID = 6;
 const uint16_t BITMAP_KGNCIN_ID = 7;
 const uint16_t BITMAP_KGNCIN___COPY_ID = 8;
 const uint16_t BITMAP_SLOTH2_ID = 9;
+const uint16_t BITMAP_TREXFRAME0_ID = 10;
+const uint16_t BITMAP_TREXFRAME1_ID = 11;
 
 namespace BitmapDatabase
 {

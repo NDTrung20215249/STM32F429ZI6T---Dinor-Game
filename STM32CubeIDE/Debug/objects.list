@@ -59,6 +59,8 @@
 "./Application/User/generated/image_gwedly.o"
 "./Application/User/generated/image_kgncin.o"
 "./Application/User/generated/image_kgncin_-_Copy.o"
+"./Application/User/generated/image_trexFrame0.o"
+"./Application/User/generated/image_trexFrame1.o"
 "./Application/User/gui/FrontendApplication.o"
 "./Application/User/gui/GameOverScreenPresenter.o"
 "./Application/User/gui/GameOverScreenView.o"
