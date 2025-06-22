@@ -19,7 +19,9 @@ public:
     virtual void onTapAreaPressed();       // Triggered by tap button
     static int finalScore;	//final score value
     static int highScore;	//high score value
-
+#ifndef SIMULATOR
+    void startBuzzer();
+#endif
 protected:
     // T-Rex physics
     int trexY;             // Current Y position of T-Rex
@@ -42,6 +44,12 @@ protected:
     bool isNight;                 // Toggle for current state
     bool isScoreFlashing;
     int flashCounter;
+#ifndef SIMULATOR
+    bool buzzerActive;
+    int buzzerTickCounter;
+    int buzzerDurationTicks;  // <- NEW: total ticks to play buzzer
+    bool buzzerPinState;
+#endif
 
 
     // Optional: Score buffer for text area (if using wildcard)

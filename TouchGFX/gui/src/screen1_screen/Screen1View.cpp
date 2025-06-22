@@ -1,3 +1,8 @@
+#ifndef SIMULATOR
+#include "stm32f4xx_hal.h"  // Your HAL header for GPIOA, HAL_GPIO_WritePin, etc.
+#include "main.h"           // If you have GPIO settings or macros there
+#endif
+
 #include <gui/screen1_screen/Screen1View.hpp>
 #include <images/BitmapDatabase.hpp>
 #include <touchgfx/Color.hpp>
@@ -12,16 +17,21 @@ Screen1View::Screen1View() :
     gravity(1.5f),
     isJumping(false),
     obstacleX(0),
-	obstacleY(0),
-	obstacleSpeed(0),
+    obstacleY(0),
+    obstacleSpeed(0),
     animationFrameCounter(0),
-	currentTrexFrame(0),
+    currentTrexFrame(0),
     score(0),
     isScoreFlashing(false),
-    flashCounter()
-
+    flashCounter(0)
+#ifndef SIMULATOR
+    , buzzerActive(false),
+    buzzerTickCounter(0),
+    buzzerDurationTicks(10),
+    buzzerPinState(false)
+#endif
 {
-    // Initialization will be done in setupScreen
+    // Constructor body
 }
 
 void Screen1View::setupScreen()
@@ -51,7 +61,14 @@ void Screen1View::setupScreen()
     // Unicode::snprintf(scoreTextBuffer, SCORETEXT_SIZE, "%d", score);
     // scoreText.invalidate();
 }
-
+#ifndef SIMULATOR
+void Screen1View::startBuzzer()
+{
+    buzzerActive = true;
+    buzzerTickCounter = 0;
+    buzzerPinState = false;
+}
+#endif
 void Screen1View::tearDownScreen()
 {
     Screen1ViewBase::tearDownScreen();
@@ -63,6 +80,10 @@ void Screen1View::onTapAreaPressed()
     {
         isJumping = true;
         velocity = -15;
+#ifndef SIMULATOR
+        startBuzzer();
+
+#endif
     }
 }
 
@@ -95,7 +116,7 @@ void Screen1View::handleTickEvent()
     if (obstacleX + obstacleImage.getWidth() < 0)
     {
         obstacleX = HAL::DISPLAY_WIDTH;
-        obstacleSpeed = 4 + rand() % 3;
+        obstacleSpeed = 4 + rand() % 2;
         score++;
         // Every 10 points, toggle day/night
         if (score % 5 == 0)
@@ -234,5 +255,23 @@ void Screen1View::handleTickEvent()
             scoreText.invalidate();
         }
     }
+
+//Buzzer Time
+#ifndef SIMULATOR
+    if (buzzerActive)
+    {
+        if (buzzerTickCounter < buzzerDurationTicks)
+        {
+            buzzerPinState = !buzzerPinState;
+            HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, buzzerPinState ? GPIO_PIN_SET : GPIO_PIN_RESET);
+            buzzerTickCounter++;
+        }
+        else
+        {
+            HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET); // Turn off
+            buzzerActive = false; // Stop buzzer
+        }
+    }
+#endif
 
 }
