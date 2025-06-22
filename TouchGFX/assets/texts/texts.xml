@@ -6,10 +6,10 @@
   <Texts>
     <TextGroup Id="Group1" />
     <TextGroup Id="Unsorted">
-      <Text Id="__SingleUse_19N8" Alignment="Center" TypographyId="Typography_02">
+      <Text Id="__SingleUse_19N8" Alignment="Center" TypographyId="Default">
         <Translation Language="GB">HAPPY DINORSAULT&#10;JUMPING</Translation>
       </Text>
-      <Text Id="__SingleUse_843D" Alignment="Center" TypographyId="Typography_00">
+      <Text Id="__SingleUse_843D" Alignment="Center" TypographyId="Default">
         <Translation Language="GB">START</Translation>
       </Text>
       <Text Id="__SingleUse_L38S" Alignment="Left" TypographyId="Default">
@@ -24,13 +24,13 @@
       <Text Id="__SingleUse_2IHK" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">Final Score: &lt;value&gt;</Translation>
       </Text>
-      <Text Id="__SingleUse_WVY5" Alignment="Center" TypographyId="Typography_00">
+      <Text Id="__SingleUse_WVY5" Alignment="Center" TypographyId="Default">
         <Translation Language="GB">Restart</Translation>
       </Text>
-      <Text Id="__SingleUse_5KWO" Alignment="Left" TypographyId="Typography_01">
+      <Text Id="__SingleUse_5KWO" Alignment="Left" TypographyId="Typography_00">
         <Translation Language="GB">GAME OVER!</Translation>
       </Text>
-      <Text Id="__SingleUse_Q723" Alignment="Center" TypographyId="Typography_00">
+      <Text Id="__SingleUse_Q723" Alignment="Center" TypographyId="TestForn">
         <Translation Language="GB">JUMP!!!!</Translation>
       </Text>
       <Text Id="__SingleUse_BKBS" Alignment="Left" TypographyId="Default">
@@ -43,11 +43,8 @@
   </Texts>
   <Typographies>
     <Typography Id="Default" Font="verdana.ttf" Size="20" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="0-9" />
-    <Typography Id="Large" Font="verdana.ttf" Size="40" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
-    <Typography Id="Small" Font="verdana.ttf" Size="10" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
-    <Typography Id="Typography_00" Font="OCRAEXT.TTF" Size="23" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
-    <Typography Id="Typography_01" Font="SNAP____.TTF" Size="29" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
-    <Typography Id="Typography_02" Font="seguibl.ttf" Size="22" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
-    <Typography Id="T_SCORE_LARGE" Font="verdana.ttf" Size="22" Bpp="4" IsVector="no" Direction="RTL" FallbackCharacter="?" />
+    <Typography Id="T_SCORE_LARGE" Font="verdana.ttf" Size="30" Bpp="4" IsVector="no" Direction="RTL" FallbackCharacter="?" WildcardCharacterRanges="0-9" />
+    <Typography Id="TestForn" Font="verdana.ttf" Size="25" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
+    <Typography Id="Typography_00" Font="SNAP____.TTF" Size="30" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
   </Typographies>
 </TextDatabase>

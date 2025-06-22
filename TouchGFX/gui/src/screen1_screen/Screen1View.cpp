@@ -1,12 +1,4 @@
-#ifndef SIMULATOR
-#include "stm32f4xx_hal.h"  // Your HAL header for GPIOA, HAL_GPIO_WritePin, etc.
-#include "main.h"           // If you have GPIO settings or macros there
-#endif
-
 #include <gui/screen1_screen/Screen1View.hpp>
-#include <images/BitmapDatabase.hpp>
-#include <touchgfx/Color.hpp>
-
 
 int Screen1View::finalScore = 0;
 int Screen1View::highScore = 0;
@@ -119,7 +111,7 @@ void Screen1View::handleTickEvent()
         obstacleSpeed = 4 + rand() % 2;
         score++;
         // Every 10 points, toggle day/night
-        if (score % 5 == 0)
+        if (score %5 == 0)
         {
             isNight = !isNight;
             isScoreFlashing = true;
@@ -239,6 +231,7 @@ void Screen1View::handleTickEvent()
         if (flashCounter % 10 < 5)
         {
             scoreText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0)); // Red
+            //scoreText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_UY6F));
         }
         else
         {

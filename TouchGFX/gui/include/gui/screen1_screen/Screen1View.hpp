@@ -3,7 +3,19 @@
 
 #include <gui_generated/screen1_screen/Screen1ViewBase.hpp>
 #include <gui/screen1_screen/Screen1Presenter.hpp>
+#include <texts/TextKeysAndLanguages.hpp>
+#include <touchgfx/TypedText.hpp>
 #include <math.h>
+
+#ifndef SIMULATOR
+#include "stm32f4xx_hal.h"  // Your HAL header for GPIOA, HAL_GPIO_WritePin, etc.
+#include "main.h"           // If you have GPIO settings or macros there
+#endif
+
+
+#include <images/BitmapDatabase.hpp>
+#include <touchgfx/Color.hpp>
+
 
 class Screen1View : public Screen1ViewBase
 {
