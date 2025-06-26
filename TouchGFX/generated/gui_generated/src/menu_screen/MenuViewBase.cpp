@@ -9,15 +9,15 @@
 MenuViewBase::MenuViewBase() :
     buttonCallback(this, &MenuViewBase::buttonCallbackHandler)
 {
-    __background.setPosition(0, 0, 240, 320);
+    __background.setPosition(0, 0, 320, 240);
     __background.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     add(__background);
 
-    background.setPosition(0, 0, 240, 320);
+    background.setPosition(0, 0, 320, 240);
     background.setColor(touchgfx::Color::getColorFromRGB(129, 247, 239));
     add(background);
 
-    startButton.setXY(0, 220);
+    startButton.setXY(40, 176);
     startButton.setBitmaps(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_50_MEDIUM_ROUNDED_NORMAL_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_50_MEDIUM_ROUNDED_PRESSED_ID));
     startButton.setLabelText(touchgfx::TypedText(T___SINGLEUSE_843D));
     startButton.setLabelColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
@@ -25,17 +25,17 @@ MenuViewBase::MenuViewBase() :
     startButton.setAction(buttonCallback);
     add(startButton);
 
-    Title.setXY(5, 46);
+    Title.setXY(55, 13);
     Title.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     Title.setLinespacing(0);
     Title.setTypedText(touchgfx::TypedText(T___SINGLEUSE_19N8));
     add(Title);
 
-    image1.setXY(27, 120);
+    image1.setXY(33, 73);
     image1.setBitmap(touchgfx::Bitmap(BITMAP_TREXFRAME0_ID));
     add(image1);
 
-    image2.setXY(167, 120);
+    image2.setXY(250, 73);
     image2.setBitmap(touchgfx::Bitmap(BITMAP_KGNCIN___COPY_ID));
     add(image2);
 }

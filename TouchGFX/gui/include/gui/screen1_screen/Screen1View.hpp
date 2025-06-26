@@ -33,6 +33,7 @@ public:
     static int highScore;	//high score value
 #ifndef SIMULATOR
     void startBuzzer();
+    void startDeathBuzzer();
 #endif
 protected:
     // T-Rex physics

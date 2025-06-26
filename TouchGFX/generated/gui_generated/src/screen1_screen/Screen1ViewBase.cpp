@@ -6,34 +6,25 @@
 #include <images/BitmapDatabase.hpp>
 #include <texts/TextKeysAndLanguages.hpp>
 
-Screen1ViewBase::Screen1ViewBase() :
-    buttonCallback(this, &Screen1ViewBase::buttonCallbackHandler)
+Screen1ViewBase::Screen1ViewBase()
 {
-    __background.setPosition(0, 0, 240, 320);
+    __background.setPosition(0, 0, 320, 240);
     __background.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     add(__background);
 
-    background.setPosition(0, 0, 240, 320);
+    background.setPosition(0, 0, 320, 240);
     background.setColor(touchgfx::Color::getColorFromRGB(129, 247, 239));
     add(background);
 
-    groundBox.setPosition(0, 190, 240, 130);
+    groundBox.setPosition(0, 190, 320, 130);
     groundBox.setColor(touchgfx::Color::getColorFromRGB(33, 35, 43));
     add(groundBox);
 
-    obstacleImage.setXY(301, 146);
+    obstacleImage.setXY(400, 146);
     obstacleImage.setBitmap(touchgfx::Bitmap(BITMAP_GWEDLY_ID));
     add(obstacleImage);
 
-    tapAreaButton.setXY(0, 230);
-    tapAreaButton.setBitmaps(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_50_MEDIUM_ROUND_NORMAL_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_50_MEDIUM_ROUND_NORMAL_ID));
-    tapAreaButton.setLabelText(touchgfx::TypedText(T___SINGLEUSE_Q723));
-    tapAreaButton.setLabelColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    tapAreaButton.setLabelColorPressed(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    tapAreaButton.setAction(buttonCallback);
-    add(tapAreaButton);
-
-    scoreText.setPosition(85, 0, 149, 33);
+    scoreText.setPosition(221, 0, 149, 33);
     scoreText.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     scoreText.setLinespacing(0);
     Unicode::snprintf(scoreTextBuffer, SCORETEXT_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_BKBS).getText());
@@ -41,11 +32,11 @@ Screen1ViewBase::Screen1ViewBase() :
     scoreText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_UY6F));
     add(scoreText);
 
-    cloud1.setXY(240, 33);
+    cloud1.setXY(328, 33);
     cloud1.setBitmap(touchgfx::Bitmap(BITMAP_CLOUD_ID));
     add(cloud1);
 
-    cloud2.setXY(370, 63);
+    cloud2.setXY(404, 63);
     cloud2.setBitmap(touchgfx::Bitmap(BITMAP_CLOUD_ID));
     add(cloud2);
 
@@ -62,17 +53,6 @@ Screen1ViewBase::~Screen1ViewBase()
 void Screen1ViewBase::setupScreen()
 {
 
-}
-
-void Screen1ViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& src)
-{
-    if (&src == &tapAreaButton)
-    {
-        //onTapAreaPressed
-        //When tapAreaButton clicked call virtual function
-        //Call onTapAreaPressed
-        onTapAreaPressed();
-    }
 }
 
 void Screen1ViewBase::gameOverTransition()

@@ -9,7 +9,6 @@
 #include <gui/screen1_screen/Screen1Presenter.hpp>
 #include <touchgfx/widgets/Box.hpp>
 #include <touchgfx/widgets/Image.hpp>
-#include <touchgfx/widgets/ButtonWithLabel.hpp>
 #include <touchgfx/widgets/TextAreaWithWildcard.hpp>
 
 class Screen1ViewBase : public touchgfx::View<Screen1Presenter>
@@ -24,14 +23,6 @@ public:
      */
     virtual void gameOverTransition();
 
-    /*
-     * Virtual Action Handlers
-     */
-    virtual void onTapAreaPressed()
-    {
-        // Override and implement this function in Screen1
-    }
-
 protected:
     FrontendApplication& application() {
         return *static_cast<FrontendApplication*>(touchgfx::Application::getInstance());
@@ -44,7 +35,6 @@ protected:
     touchgfx::Box background;
     touchgfx::Box groundBox;
     touchgfx::Image obstacleImage;
-    touchgfx::ButtonWithLabel tapAreaButton;
     touchgfx::TextAreaWithOneWildcard scoreText;
     touchgfx::Image cloud1;
     touchgfx::Image cloud2;
@@ -57,16 +47,6 @@ protected:
     touchgfx::Unicode::UnicodeChar scoreTextBuffer[SCORETEXT_SIZE];
 
 private:
-
-    /*
-     * Callback Declarations
-     */
-    touchgfx::Callback<Screen1ViewBase, const touchgfx::AbstractButton&> buttonCallback;
-
-    /*
-     * Callback Handler Declarations
-     */
-    void buttonCallbackHandler(const touchgfx::AbstractButton& src);
 
 };
 

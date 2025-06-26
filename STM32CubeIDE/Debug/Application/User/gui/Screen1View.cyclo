@@ -1,10 +1,10 @@
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:104:18:virtual void touchgfx::Screen::afterTransition()	1
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:154:18:virtual void touchgfx::Screen::handleKeyEvent(uint8_t)	1
-C:/TouchGFXProjects/Dino/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:64:6:virtual void Screen1View::tearDownScreen()	1
+C:/TouchGFXProjects/Dino/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:80:6:virtual void Screen1View::tearDownScreen()	1
 ../../TouchGFX/gui/include/gui/screen1_screen/Screen1View.hpp:24:13:Screen1View::~Screen1View()	1
 ../../TouchGFX/gui/include/gui/screen1_screen/Screen1View.hpp:24:13:virtual Screen1View::~Screen1View()	1
-C:/TouchGFXProjects/Dino/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:69:6:virtual void Screen1View::onTapAreaPressed()	2
-C:/TouchGFXProjects/Dino/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:6:1:Screen1View::Screen1View()	1
-C:/TouchGFXProjects/Dino/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:57:6:void Screen1View::startBuzzer()	1
-C:/TouchGFXProjects/Dino/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:29:6:virtual void Screen1View::setupScreen()	1
-C:/TouchGFXProjects/Dino/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:82:6:virtual void Screen1View::handleTickEvent()	19
+C:/TouchGFXProjects/Dino/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:12:1:Screen1View::Screen1View()	1
+C:/TouchGFXProjects/Dino/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:64:6:void Screen1View::startBuzzer()	1
+C:/TouchGFXProjects/Dino/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:71:6:void Screen1View::startDeathBuzzer()	1
+C:/TouchGFXProjects/Dino/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:35:6:virtual void Screen1View::setupScreen()	1
+C:/TouchGFXProjects/Dino/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:88:6:virtual void Screen1View::handleTickEvent()	21

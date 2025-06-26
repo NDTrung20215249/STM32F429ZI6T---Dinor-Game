@@ -1,4 +1,10 @@
 #include <gui/screen1_screen/Screen1View.hpp>
+#include <images/BitmapDatabase.hpp>
+#include <touchgfx/Color.hpp>
+#ifndef SIMULATOR
+#include "stm32f4xx_hal.h"
+#include "main.h"
+#endif
 
 int Screen1View::finalScore = 0;
 int Screen1View::highScore = 0;
@@ -30,29 +36,30 @@ void Screen1View::setupScreen()
 {
     Screen1ViewBase::setupScreen();
 
-    // Position T-Rex on top of ground
+    // Position T-Rex on ground
     trexY = groundBox.getY() - trexImage.getHeight();
     trexImage.setY(trexY);
-    // Set initial obstacle position off the right edge
+
+    // Initial obstacle position
     obstacleX = HAL::DISPLAY_WIDTH;
     obstacleY = 146;
     obstacleSpeed = 4 + rand() % 3;
+
     obstacleImage.setX(obstacleX);
     obstacleImage.setY(obstacleY);
+
     animationFrameCounter = 0;
     currentTrexFrame = 0;
-    backgroundBrightness = 255; // Start as full day
+
+    backgroundBrightness = 255;
     isNight = false;
     isScoreFlashing = false;
     flashCounter = 0;
-    scoreText.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0)); // Black Text
+
+    scoreText.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     scoreText.invalidate();
-
-
-    // Optional: Score text
-    // Unicode::snprintf(scoreTextBuffer, SCORETEXT_SIZE, "%d", score);
-    // scoreText.invalidate();
 }
+
 #ifndef SIMULATOR
 void Screen1View::startBuzzer()
 {
@@ -60,31 +67,42 @@ void Screen1View::startBuzzer()
     buzzerTickCounter = 0;
     buzzerPinState = false;
 }
+
+void Screen1View::startDeathBuzzer()
+{
+    buzzerActive = true;
+    buzzerTickCounter = 0;
+    buzzerDurationTicks = 10; // Longer buzz duration for death
+    buzzerPinState = false;
+}
 #endif
+
 void Screen1View::tearDownScreen()
 {
     Screen1ViewBase::tearDownScreen();
 }
-
 void Screen1View::onTapAreaPressed()
 {
-    if (!isJumping)
-    {
-        isJumping = true;
-        velocity = -15;
-#ifndef SIMULATOR
-        startBuzzer();
-
-#endif
-    }
+    // No action anymore; jump is triggered via hardware button
 }
-
 void Screen1View::handleTickEvent()
 {
+#ifndef SIMULATOR
+    if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_0) == GPIO_PIN_SET)
+    {
+        if (!isJumping)
+        {
+            isJumping = true;
+            velocity = -15;
+            startBuzzer();
+        }
+    }
+#endif
+
     // --- Jumping ---
     if (isJumping)
     {
-        trexImage.invalidate(); // Clear old image
+        trexImage.invalidate();
 
         trexY += velocity;
         velocity += gravity;
@@ -97,11 +115,11 @@ void Screen1View::handleTickEvent()
         }
 
         trexImage.setY(trexY);
-        trexImage.invalidate(); // Redraw at new position
+        trexImage.invalidate();
     }
 
     // --- Obstacle movement ---
-    obstacleImage.invalidate(); // Clear old obstacle
+    obstacleImage.invalidate();
 
     obstacleX -= obstacleSpeed;
 
@@ -110,8 +128,8 @@ void Screen1View::handleTickEvent()
         obstacleX = HAL::DISPLAY_WIDTH;
         obstacleSpeed = 4 + rand() % 2;
         score++;
-        // Every 10 points, toggle day/night
-        if (score %5 == 0)
+
+        if (score % 5 == 0)
         {
             isNight = !isNight;
             isScoreFlashing = true;
@@ -124,147 +142,111 @@ void Screen1View::handleTickEvent()
 
     obstacleImage.setX(obstacleX);
     obstacleImage.setY(obstacleY);
+    obstacleImage.invalidate();
 
-    obstacleImage.invalidate(); // Redraw at new position
-    // --- Cloud movement ---
-    cloud1.invalidate(); // Clear old obstacle
+    // --- Cloud 1 ---
+    cloud1.invalidate();
+    cloud1X -= 1;
+    if (cloud1X + cloud1.getWidth() < 0)
+        cloud1X = HAL::DISPLAY_WIDTH;
+    cloud1.setX(cloud1X);
+    cloud1.invalidate();
 
-        cloud1X -= 1;
-        if (cloud1X + cloud1.getWidth() < 0)
-        {
-            cloud1X = HAL::DISPLAY_WIDTH;
+    // --- Cloud 2 ---
+    cloud2.invalidate();
+    cloud2X -= 1.25;
+    if (cloud2X + cloud2.getWidth() < 0)
+        cloud2X = HAL::DISPLAY_WIDTH;
+    cloud2.setX(cloud2X);
+    cloud2.invalidate();
 
-            // Unicode::snprintf(scoreTextBuffer, SCORETEXT_SIZE, "%d", score);
-            // scoreText.invalidate();
-        }
-
-        cloud1.setX(cloud1X);
-        cloud1.invalidate(); // Redraw at new position
- // Cloud 2
-        cloud2.invalidate(); // Clear old obstacle
-
-            cloud2X -= 1.25;
-            if (cloud2X + cloud2.getWidth() < 0)
-            {
-                cloud2X = HAL::DISPLAY_WIDTH;
-
-                Unicode::snprintf(scoreTextBuffer, SCORETEXT_SIZE, "%d", score);
-                scoreText.invalidate();
-            }
-
-            cloud2.setX(cloud2X);
-            cloud1.invalidate(); // Redraw at new position
-
-// --- T-Rex manual animation ---
-            if (isJumping)
-            {
-                // Show jump frame while T-Rex is in the air
-                trexImage.setBitmap(Bitmap(BITMAP_TREXFRAME0_ID));
-                trexImage.invalidate();
-            }
-            else
-            {
-                // Animate running when on ground
-                animationFrameCounter++;
-
-                if (animationFrameCounter >= 5) // Change every 5 ticks
-                {
-                    currentTrexFrame = 1 - currentTrexFrame;
-
-                    if (currentTrexFrame == 0)
-                    {
-                        trexImage.setBitmap(Bitmap(BITMAP_TREXFRAME0_ID));
-                    }
-                    else
-                    {
-                        trexImage.setBitmap(Bitmap(BITMAP_TREXFRAME1_ID));
-                    }
-
-                    trexImage.invalidate();
-                    animationFrameCounter = 0;
-                }
-            }
-
-    // --- Collision detection ---
-    if (sqrt(pow(obstacleX - trexImage.getX(),2)+pow(obstacleY - trexImage.getY(),2))<44)
+    // --- T-Rex animation ---
+    if (isJumping)
     {
-        // Collision detected: reset
-    	finalScore = score;
-    	if(highScore < finalScore){
-    		highScore = finalScore;
-    	}
+        trexImage.setBitmap(Bitmap(BITMAP_TREXFRAME0_ID));
+        trexImage.invalidate();
+    }
+    else
+    {
+        animationFrameCounter++;
+        if (animationFrameCounter >= 5)
+        {
+            currentTrexFrame = 1 - currentTrexFrame;
+            if (currentTrexFrame == 0)
+                trexImage.setBitmap(Bitmap(BITMAP_TREXFRAME0_ID));
+            else
+                trexImage.setBitmap(Bitmap(BITMAP_TREXFRAME1_ID));
+
+            trexImage.invalidate();
+            animationFrameCounter = 0;
+        }
+    }
+
+    // --- Collision ---
+    if (sqrt(pow(obstacleX - trexImage.getX(),2) + pow(obstacleY - trexImage.getY(),2)) < 44)
+    {
+#ifndef SIMULATOR
+        startDeathBuzzer();
+#endif
+        finalScore = score;
+        if (highScore < finalScore)
+            highScore = finalScore;
 
         score = 0;
         obstacleX = HAL::DISPLAY_WIDTH;
-
 
         Unicode::snprintf(scoreTextBuffer, SCORETEXT_SIZE, "%d", score);
         scoreText.invalidate();
 
         gameOverTransition();
     }
-    // Smooth background transition
+
+    // --- Background transition ---
     if (isNight && backgroundBrightness > 50)
-    {
-        backgroundBrightness -= 3; // Darken
-    }
+        backgroundBrightness -= 3;
     else if (!isNight && backgroundBrightness < 255)
-    {
-        backgroundBrightness += 3; // Brighten
-    }
+        backgroundBrightness += 3;
 
-    // Compute RGB color based on brightness
-    uint8_t r = backgroundBrightness;
-    uint8_t g = backgroundBrightness;
-    uint8_t b = backgroundBrightness;
-
-    // Apply background color smoothly
-    colortype color = touchgfx::Color::getColorFromRGB(r, g, b);
+    colortype color = touchgfx::Color::getColorFromRGB(
+        backgroundBrightness,
+        backgroundBrightness,
+        backgroundBrightness);
     background.setColor(color);
     background.invalidate();
-    // Flash Color Score
+
+    // --- Score flashing ---
     if (isScoreFlashing)
     {
         flashCounter++;
-
-        // Flash between red and black every 5 ticks
         if (flashCounter % 10 < 5)
-        {
-            scoreText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0)); // Red
-            //scoreText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_UY6F));
-        }
+            scoreText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
         else
-        {
-            scoreText.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0)); // Black
-        }
-
+            scoreText.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
         scoreText.invalidate();
-
-        // Stop flashing after 30 ticks (~600ms)
         if (flashCounter > 30)
         {
             isScoreFlashing = false;
-            scoreText.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0)); // Final black
+            scoreText.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
             scoreText.invalidate();
         }
     }
 
-//Buzzer Time
 #ifndef SIMULATOR
+    // --- Buzzer toggle ---
     if (buzzerActive)
     {
         if (buzzerTickCounter < buzzerDurationTicks)
         {
             buzzerPinState = !buzzerPinState;
-            HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, buzzerPinState ? GPIO_PIN_SET : GPIO_PIN_RESET);
+            HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5,
+                buzzerPinState ? GPIO_PIN_SET : GPIO_PIN_RESET);
             buzzerTickCounter++;
         }
         else
         {
-            HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET); // Turn off
-            buzzerActive = false; // Stop buzzer
+            HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
+            buzzerActive = false;
         }
     }
 #endif
-
 }

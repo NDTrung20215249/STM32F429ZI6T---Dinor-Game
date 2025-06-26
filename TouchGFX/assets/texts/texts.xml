@@ -6,8 +6,8 @@
   <Texts>
     <TextGroup Id="Group1" />
     <TextGroup Id="Unsorted">
-      <Text Id="__SingleUse_19N8" Alignment="Center" TypographyId="Default">
-        <Translation Language="GB">HAPPY DINORSAULT&#10;JUMPING</Translation>
+      <Text Id="__SingleUse_19N8" Alignment="Center" TypographyId="Typography_01">
+        <Translation Language="GB">HAPPY DINOSAUR&#10;JUMPING</Translation>
       </Text>
       <Text Id="__SingleUse_843D" Alignment="Center" TypographyId="Default">
         <Translation Language="GB">START</Translation>
@@ -30,9 +30,6 @@
       <Text Id="__SingleUse_5KWO" Alignment="Left" TypographyId="Typography_00">
         <Translation Language="GB">GAME OVER!</Translation>
       </Text>
-      <Text Id="__SingleUse_Q723" Alignment="Center" TypographyId="TestForn">
-        <Translation Language="GB">JUMP!!!!</Translation>
-      </Text>
       <Text Id="__SingleUse_BKBS" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">0</Translation>
       </Text>
@@ -46,5 +43,6 @@
     <Typography Id="T_SCORE_LARGE" Font="verdana.ttf" Size="30" Bpp="4" IsVector="no" Direction="RTL" FallbackCharacter="?" WildcardCharacterRanges="0-9" />
     <Typography Id="TestForn" Font="verdana.ttf" Size="25" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
     <Typography Id="Typography_00" Font="SNAP____.TTF" Size="30" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
+    <Typography Id="Typography_01" Font="SNAP____.TTF" Size="20" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
   </Typographies>
 </TextDatabase>
