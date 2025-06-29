@@ -43,6 +43,14 @@ Screen1ViewBase::Screen1ViewBase()
     trexImage.setXY(24, 143);
     trexImage.setBitmap(touchgfx::Bitmap(BITMAP_TREXFRAME0_ID));
     add(trexImage);
+
+    highScoreText.setPosition(7, 0, 221, 25);
+    highScoreText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+    highScoreText.setLinespacing(0);
+    Unicode::snprintf(highScoreTextBuffer, HIGHSCORETEXT_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_T6N6).getText());
+    highScoreText.setWildcard(highScoreTextBuffer);
+    highScoreText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_6Z2G));
+    add(highScoreText);
 }
 
 Screen1ViewBase::~Screen1ViewBase()

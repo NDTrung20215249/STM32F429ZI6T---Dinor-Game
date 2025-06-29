@@ -6,6 +6,12 @@
   <Texts>
     <TextGroup Id="Group1" />
     <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_T6N6" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">0</Translation>
+      </Text>
+      <Text Id="__SingleUse_6Z2G" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Higest Score: &lt;value&gt;</Translation>
+      </Text>
       <Text Id="__SingleUse_19N8" Alignment="Center" TypographyId="Typography_01">
         <Translation Language="GB">HAPPY DINOSAUR&#10;JUMPING</Translation>
       </Text>

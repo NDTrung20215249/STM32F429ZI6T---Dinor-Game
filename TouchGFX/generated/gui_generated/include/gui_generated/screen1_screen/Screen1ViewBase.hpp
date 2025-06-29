@@ -39,12 +39,15 @@ protected:
     touchgfx::Image cloud1;
     touchgfx::Image cloud2;
     touchgfx::Image trexImage;
+    touchgfx::TextAreaWithOneWildcard highScoreText;
 
     /*
      * Wildcard Buffers
      */
     static const uint16_t SCORETEXT_SIZE = 10;
     touchgfx::Unicode::UnicodeChar scoreTextBuffer[SCORETEXT_SIZE];
+    static const uint16_t HIGHSCORETEXT_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar highScoreTextBuffer[HIGHSCORETEXT_SIZE];
 
 private:
 

@@ -158,6 +158,23 @@
             "Width": 44,
             "Height": 47,
             "RelativeFilename": "trexFrame0.png"
+          },
+          {
+            "Type": "TextArea",
+            "Name": "highScoreText",
+            "X": 7,
+            "Width": 221,
+            "Height": 25,
+            "TextId": "__SingleUse_6Z2G",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_T6N6",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
           }
         ],
         "Interactions": [

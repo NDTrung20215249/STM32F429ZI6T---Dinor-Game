@@ -12,9 +12,19 @@ public:
     virtual ~GameOverScreenView() {}
     virtual void setupScreen();
     virtual void tearDownScreen();
+    virtual void handleTickEvent();
+#ifndef SIMULATOR
+    void startBuzzer();
+#endif
 protected:
     int finalScore;
     int highScore;
+#ifndef SIMULATOR
+    bool buzzerActive;
+    int buzzerTickCounter;
+    int buzzerDurationTicks;  // <- NEW: total ticks to play buzzer
+    bool buzzerPinState;
+#endif
 };
 
 #endif // GAMEOVERSCREENVIEW_HPP

@@ -1,10 +1,11 @@
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:104:18:virtual void touchgfx::Screen::afterTransition()	0	static
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:154:18:virtual void touchgfx::Screen::handleKeyEvent(uint8_t)	0	static
-C:/TouchGFXProjects/Dino/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:80:6:virtual void Screen1View::tearDownScreen()	0	static
-../../TouchGFX/gui/include/gui/screen1_screen/Screen1View.hpp:24:13:Screen1View::~Screen1View()	8	static
-../../TouchGFX/gui/include/gui/screen1_screen/Screen1View.hpp:24:13:virtual Screen1View::~Screen1View()	8	static
-C:/TouchGFXProjects/Dino/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:12:1:Screen1View::Screen1View()	8	static
-C:/TouchGFXProjects/Dino/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:64:6:void Screen1View::startBuzzer()	0	static
-C:/TouchGFXProjects/Dino/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:71:6:void Screen1View::startDeathBuzzer()	0	static
-C:/TouchGFXProjects/Dino/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:35:6:virtual void Screen1View::setupScreen()	8	static
-C:/TouchGFXProjects/Dino/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:88:6:virtual void Screen1View::handleTickEvent()	40	static
+C:/TouchGFXProjects/Dino/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:115:6:virtual void Screen1View::tearDownScreen()	0	static
+../../TouchGFX/gui/include/gui/screen1_screen/Screen1View.hpp:30:13:Screen1View::~Screen1View()	8	static
+../../TouchGFX/gui/include/gui/screen1_screen/Screen1View.hpp:30:13:virtual Screen1View::~Screen1View()	8	static
+C:/TouchGFXProjects/Dino/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:8:1:Screen1View::Screen1View()	8	static
+C:/TouchGFXProjects/Dino/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:31:6:void saveHighScoreToFlash(uint32_t)	40	static
+C:/TouchGFXProjects/Dino/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:60:10:uint32_t readHighScoreFromFlash()	0	static
+C:/TouchGFXProjects/Dino/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:104:6:void Screen1View::startBuzzer()	0	static
+C:/TouchGFXProjects/Dino/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:70:6:virtual void Screen1View::setupScreen()	8	static
+C:/TouchGFXProjects/Dino/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:123:6:virtual void Screen1View::handleTickEvent()	40	static

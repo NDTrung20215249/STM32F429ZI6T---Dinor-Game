@@ -15,7 +15,13 @@
 
 #include <images/BitmapDatabase.hpp>
 #include <touchgfx/Color.hpp>
-
+#include <images/BitmapDatabase.hpp>
+#include <touchgfx/Color.hpp>
+#ifndef SIMULATOR
+#include "stm32f4xx_hal.h"
+#include "main.h"
+#define FLASH_SECTOR_SAVE_ADDRESS 0x080E0000
+#endif
 
 class Screen1View : public Screen1ViewBase
 {
@@ -33,7 +39,6 @@ public:
     static int highScore;	//high score value
 #ifndef SIMULATOR
     void startBuzzer();
-    void startDeathBuzzer();
 #endif
 protected:
     // T-Rex physics

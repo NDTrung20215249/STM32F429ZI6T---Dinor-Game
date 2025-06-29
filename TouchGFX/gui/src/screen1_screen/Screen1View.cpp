@@ -1,10 +1,6 @@
 #include <gui/screen1_screen/Screen1View.hpp>
-#include <images/BitmapDatabase.hpp>
-#include <touchgfx/Color.hpp>
-#ifndef SIMULATOR
-#include "stm32f4xx_hal.h"
-#include "main.h"
-#endif
+
+
 
 int Screen1View::finalScore = 0;
 int Screen1View::highScore = 0;
@@ -31,7 +27,46 @@ Screen1View::Screen1View() :
 {
     // Constructor body
 }
+#ifndef SIMULATOR
+void saveHighScoreToFlash(uint32_t highScore)
+{
+    HAL_FLASH_Unlock();
 
+    // Erase the sector
+    FLASH_EraseInitTypeDef eraseInit;
+    uint32_t sectorError = 0;
+
+    eraseInit.TypeErase = FLASH_TYPEERASE_SECTORS;
+    eraseInit.Sector = FLASH_SECTOR_11; // Sector 11
+    eraseInit.NbSectors = 1;
+    eraseInit.VoltageRange = FLASH_VOLTAGE_RANGE_3;
+
+    if (HAL_FLASHEx_Erase(&eraseInit, &sectorError) != HAL_OK)
+    {
+        // Handle error here
+        HAL_FLASH_Lock();
+        return;
+    }
+
+    // Write the data
+    if (HAL_FLASH_Program(FLASH_TYPEPROGRAM_WORD, FLASH_SECTOR_SAVE_ADDRESS, highScore) != HAL_OK)
+    {
+        // Handle error here
+    }
+
+    HAL_FLASH_Lock();
+}
+
+uint32_t readHighScoreFromFlash()
+{
+    uint32_t value = *(uint32_t*)FLASH_SECTOR_SAVE_ADDRESS;
+
+    // Optional: if erased Flash returns 0xFFFFFFFF, treat as 0
+    if (value == 0xFFFFFFFF)
+        return 0;
+    return value;
+}
+#endif
 void Screen1View::setupScreen()
 {
     Screen1ViewBase::setupScreen();
@@ -58,6 +93,11 @@ void Screen1View::setupScreen()
 
     scoreText.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     scoreText.invalidate();
+#ifndef SIMULATOR
+    highScore = readHighScoreFromFlash();
+#endif
+    Unicode::snprintf(highScoreTextBuffer, HIGHSCORETEXT_SIZE, "%d", highScore);
+    highScoreText.invalidate();
 }
 
 #ifndef SIMULATOR
@@ -65,16 +105,11 @@ void Screen1View::startBuzzer()
 {
     buzzerActive = true;
     buzzerTickCounter = 0;
+    buzzerDurationTicks = 10; // Longer buzz duration for death
+
     buzzerPinState = false;
 }
 
-void Screen1View::startDeathBuzzer()
-{
-    buzzerActive = true;
-    buzzerTickCounter = 0;
-    buzzerDurationTicks = 10; // Longer buzz duration for death
-    buzzerPinState = false;
-}
 #endif
 
 void Screen1View::tearDownScreen()
@@ -185,13 +220,12 @@ void Screen1View::handleTickEvent()
     // --- Collision ---
     if (sqrt(pow(obstacleX - trexImage.getX(),2) + pow(obstacleY - trexImage.getY(),2)) < 44)
     {
-#ifndef SIMULATOR
-        startDeathBuzzer();
-#endif
         finalScore = score;
         if (highScore < finalScore)
             highScore = finalScore;
-
+#ifndef SIMULATOR
+         saveHighScoreToFlash(highScore);
+#endif
         score = 0;
         obstacleX = HAL::DISPLAY_WIDTH;
 
