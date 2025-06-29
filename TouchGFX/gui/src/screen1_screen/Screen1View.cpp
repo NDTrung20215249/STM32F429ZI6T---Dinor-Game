@@ -21,7 +21,7 @@ Screen1View::Screen1View() :
 #ifndef SIMULATOR
     , buzzerActive(false),
     buzzerTickCounter(0),
-    buzzerDurationTicks(10),
+    buzzerDurationTicks(0),
     buzzerPinState(false)
 #endif
 {

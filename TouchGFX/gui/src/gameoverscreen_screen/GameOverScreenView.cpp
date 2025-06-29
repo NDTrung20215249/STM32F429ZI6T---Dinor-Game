@@ -5,7 +5,7 @@ GameOverScreenView::GameOverScreenView() :
 #ifndef SIMULATOR
     buzzerActive(false),
     buzzerTickCounter(0),
-    buzzerDurationTicks(10),
+    buzzerDurationTicks(0),
     buzzerPinState(false)
 #endif
 {
@@ -15,7 +15,7 @@ void GameOverScreenView::startBuzzer()
 {
     buzzerActive = true;
     buzzerTickCounter = 0;
-    buzzerDurationTicks = 30; // Longer buzz duration for death
+    buzzerDurationTicks = 80; // Longer buzz duration for death
 
     buzzerPinState = false;
 }
@@ -45,18 +45,21 @@ void GameOverScreenView::handleTickEvent(){
     // --- Buzzer toggle ---
     if (buzzerActive)
     {
-        if (buzzerTickCounter < buzzerDurationTicks)
+
+        if (buzzerTickCounter < buzzerDurationTicks )
         {
-            buzzerPinState = !buzzerPinState;
-            HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5,
-                buzzerPinState ? GPIO_PIN_SET : GPIO_PIN_RESET);
-            buzzerTickCounter++;
+        	if(buzzerTickCounter % 4 == 0){
+        		buzzerPinState = !buzzerPinState;
+        		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5,
+        		buzzerPinState ? GPIO_PIN_SET : GPIO_PIN_RESET);
+        	}
         }
         else
         {
             HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
             buzzerActive = false;
         }
+        buzzerTickCounter++;
     }
 #endif
 }

@@ -3,7 +3,7 @@
 C:/TouchGFXProjects/Dino/TouchGFX/gui/src/gameoverscreen_screen/GameOverScreenView.cpp:38:6:virtual void GameOverScreenView::tearDownScreen()	1
 ../../TouchGFX/gui/include/gui/gameoverscreen_screen/GameOverScreenView.hpp:12:13:GameOverScreenView::~GameOverScreenView()	1
 ../../TouchGFX/gui/include/gui/gameoverscreen_screen/GameOverScreenView.hpp:12:13:virtual GameOverScreenView::~GameOverScreenView()	1
-C:/TouchGFXProjects/Dino/TouchGFX/gui/src/gameoverscreen_screen/GameOverScreenView.cpp:43:6:virtual void GameOverScreenView::handleTickEvent()	3
+C:/TouchGFXProjects/Dino/TouchGFX/gui/src/gameoverscreen_screen/GameOverScreenView.cpp:43:6:virtual void GameOverScreenView::handleTickEvent()	4
 C:/TouchGFXProjects/Dino/TouchGFX/gui/src/gameoverscreen_screen/GameOverScreenView.cpp:3:1:GameOverScreenView::GameOverScreenView()	1
 C:/TouchGFXProjects/Dino/TouchGFX/gui/src/gameoverscreen_screen/GameOverScreenView.cpp:14:6:void GameOverScreenView::startBuzzer()	1
 C:/TouchGFXProjects/Dino/TouchGFX/gui/src/gameoverscreen_screen/GameOverScreenView.cpp:22:6:virtual void GameOverScreenView::setupScreen()	1
